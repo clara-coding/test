@@ -1,6 +1,4 @@
 # ecse223-group-project-p9
 
 ## The team has a google drive folder for documentation and reports
-link: https://docs.google.com/document/d/1FGpjm1rhSyYwMeINVAC4rTQDsoI6DCAM/edit?usp=drive_link&ouid=100209126845582041634&rtpof=true&sd=true
-
-
+link: https://drive.google.com/drive/folders/18s71jqQJ5ZxypO-kfOLHb8RiBIh3hk3a?usp=drive_link
