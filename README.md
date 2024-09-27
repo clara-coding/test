@@ -1,4 +1,20 @@
-# ecse223-group-project-p9
+# :triangular_ruler::books: ECSE223 CoolSupplies Project: Team N
 
-## The team has a google drive folder for documentation and reports
-link: https://drive.google.com/drive/folders/18s71jqQJ5ZxypO-kfOLHb8RiBIh3hk3a?usp=drive_link
+_(Edit this file as needed, then remove this sentence)._
+
+## Project Overview
+
+_Provide a one-sentence overview of your project here._
+
+For more information about the CoolSupplies application, please consult the [wiki](../../wiki).
+
+## Team Members
+
+| Name          | GitHub username |
+| ------------- | --------------- |
+| Team Member A | ...             |
+| Team Member B | ...             |
+| Team Member C | ...             |
+| Team Member D | ...             |
+| Team Member E | ...             |
+| Team Member F | ...             |
