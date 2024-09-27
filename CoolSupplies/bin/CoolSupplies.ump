@@ -1,0 +1,208 @@
+namespace ca.mcgill.ecse.coolsupplies.model;
+
+class User
+{
+  abstract;
+  unique immutable accountName;
+  password;
+}
+
+class Parent
+{
+  isA User;
+  parentName;
+  phoneNumber;
+  0..1 -- * Student;
+}
+
+class Admin
+{
+  isA User;
+  immutable accountName = "admin@cool.ca";
+  password = "admin";
+}
+
+class Student
+{
+  immutable name;
+  unique Integer id;
+  immutable dateOfBirth;
+}
+
+class Grade
+{
+  gradeNumber;
+  1 -- * Student;
+}
+
+class Bundle
+{
+  Float discountPercentage;
+  * -- * Order;
+  0..1 -- 1 Grade;
+  * -- 1..* Item;
+  }
+
+class Order
+{
+  date;
+  Integer orderNumber;
+  Boolean ready;
+  Boolean pickedUp;
+  * -- 1 Student;
+  1 <@>- 0..1 Penalty;
+  0..1 order <@>- 1 Transaction orderPayment;
+}
+
+class Penalty
+{
+  Float amount;
+  0..1 -- 1 Transaction;
+}
+
+class Transaction
+{
+  unique id;
+  authorizationCode;
+  Boolean isPenalty;
+}
+
+class Item
+{
+  Float price;
+  name;
+  * -- * Order;
+}
+
+associationClass ItemPack
+{
+  enum ImportanceLevel { mandatory, Recommended, Optional }
+  ImportanceLevel importanceLevel;
+  Integer repetition;
+  * Bundle;
+  * Item;
+}
+
+associationClass Repetition
+{
+  Integer repetition;
+  * Order;
+  * Item;
+}
+
+class CoolSupplies
+{
+  startOfSchoolYear;
+  1 <@>- * User;
+  1 <@>- * Student;
+  1 <@>- * Bundle;
+  1 <@>- * Item;
+  1 <@>- * Order;
+  1 <@>- * ItemPack;
+  1 <@>- * Repetition;
+  1 <@>- * Grade;
+}
+
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class Parent
+{
+  position 17 138 170.086 77.3672;
+  position.association Parent__Student 50,77 46,0;
+  position.association Parent__Student:students 55,73 50,0;
+}
+
+class Admin
+{
+  position 221 138 109 42.3672;
+    position.association Admin__CoolSupplies 17,0 0,43;
+}
+
+class Student
+{
+  position 22 272 152.422 94.8672;
+}
+
+class Grade
+{
+  position 245 267 166.891 59.8672;
+  position.association Grade__Student 0,13 153,6;
+  }
+
+class Bundle
+{
+  position 222 410 195.047 59.8672;
+  position.association Bundle__Order 89,60 80,0;
+  position.association Bundle__Grade 94,0 73,60;
+  position.association Bundle__SchoolYear 91,0 16,40;
+  position.association Bundle__Item 166,60 0,29;
+  }
+
+class Order
+{
+  position 230 517 148.617 112.367;
+  position.association Order__Student 0,18 101,112;
+  position.association Order__Penalty 0,57 46,0;
+  position.association Order__Transaction 27,112 29,0;
+  position.association Order__SchoolYear 151,0 60,40;
+  position.association Order__Transaction:orderPayment 46,112 49,0;
+  position.association Order:order__Transaction:orderPayment 78,112 80,0;
+}
+
+class Penalty
+{
+  position 54 611 115.992 59.8672;
+  position.association Penalty__Transaction 117,60 0,30;
+}
+
+class Transaction
+{
+  position 227 690 197.227 94.8672;
+}
+
+class Item
+{
+  position 467 507 112.914 77.3672;
+  position.association Item__Order 0,55 174,44;
+}
+
+class ItemPack
+{
+  position 444 346 254 86.3672;
+  position.association Bundle__ItemPack 0,42 195,0;
+  position.association ItemPack__Item 101,76 4,0;
+  position.association Item__ItemPack 61,86 30,0;
+}
+
+class Repetition
+{
+  position 467 637 71.4844 108;
+  position.association Order__Repetition 0,34 158,112;
+  position.association Item__Repetition 57,0 10,86;
+}
+
+class CoolSupplies
+{
+  position 425 27 195.211 76.3672;
+  position.association CoolSupplies__User 0,10 168,6;
+  position.association CoolSupplies__Student 0,53 119,0;
+  position.association CoolSupplies__ItemPack 99,60 8,0;
+  position.association CoolSupplies__Item 130,60 6,0;
+  position.association CoolSupplies__Repetition 164,60 71,0;
+    position.association CoolSupplies__Order 63,60 156,0;
+  position.association Bundle__CoolSupplies 38,60 139,0;
+    position.association CoolSupplies__Grade 20,49 101,0;
+}
+
+class Parent
+{
+  position 17 138 0 0;
+}
+
+class User
+{
+  position 50 30 109 45;
+}
