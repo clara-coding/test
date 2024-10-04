@@ -88,7 +88,6 @@ public class CoolSuppliesFeatureSet4Controller {
   }
 
   public static String deleteBundle(String name) {
-    CoolSupplies coolSupplies = CoolSuppliesApplication.getCoolSupplies();
     GradeBundle bundle = findBundleByName(name);
     if (bundle == null) {
         // throw new IllegalArgumentException("Error: Bundle with the specified name does not exist.");
@@ -99,9 +98,9 @@ public class CoolSuppliesFeatureSet4Controller {
     Grade grade = bundle.getGrade();
     if (grade != null) {
         grade.setBundle(null);
+        bundle.delete();
     }
 
-    coolSupplies.removeBundle(bundle);
     } catch (RuntimeException e) {
         return e.getMessage();
     }
