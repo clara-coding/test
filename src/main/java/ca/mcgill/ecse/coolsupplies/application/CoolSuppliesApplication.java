@@ -7,7 +7,9 @@ public class CoolSuppliesApplication {
   private static CoolSupplies coolSupplies;
 
   public static void main(String[] args) {
-    // TODO Start the application user interface here
+    System.out.println("testing print");
+    getCoolSupplies();
+    
   }
 
   public static CoolSupplies getCoolSupplies() {
