@@ -1,10 +1,9 @@
-# :triangular_ruler::books: ECSE223 CoolSupplies Project: Team N
+# :triangular_ruler::books: ECSE223 CoolSupplies Project: Team 9
 
-_(Edit this file as needed, then remove this sentence)._
 
 ## Project Overview
 
-_Provide a one-sentence overview of your project here._
+P9's implementation of the CoolSupplies app for ECSE 223 (Model-Based Programming)
 
 For more information about the CoolSupplies application, please consult the [wiki](../../wiki).
 
@@ -12,7 +11,7 @@ For more information about the CoolSupplies application, please consult the [wik
 
 | Name          | GitHub username |
 | ------------- | --------------- |
-| Team Member A | MaximeCourchesne |
+| Maxime Courchesne | MaximeCourchesne |
 | Team Member B | ...             |
 | Team Member C | ...             |
 | Team Member D | ...             |
@@ -24,14 +23,11 @@ For more information about the CoolSupplies application, please consult the [wik
 # Iteration 2
 
 ## Part 1: Assignment of Feature Sets to Team Members
+1. Clone our group's repo: ecse223-group-project-p9
+2. Please add your name and github username above in the this file: "README.md"
+3. Create your branch from the **common-base** branch and not from the **main** branch that is usually default.
 
-**1.clone our group's repo: ecse223-group-project-p9**
-
-Make sure that you create your branch from the **common-base** branch and not from the **main** branch that is usually default.
-
-For readability purposes, please branch name that is clear and contains your name
-
-See diagram:
+For readability purposes, please branch name that is clear and contains your name, see diagram:
 
 ```mermaid
 gitGraph
