@@ -33,8 +33,7 @@ public class DeleteGradeBundleStepDefinitions {
   @When("the school admin attempts to delete from the system the gradeBundle with name {string} \\(p9)")
   public void the_school_admin_attempts_to_delete_from_the_system_the_grade_bundle_with_name_p9(
       String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+      CoolSuppliesApplication.getCoolSupplies().deleteBundle(bundleName);
   }
 
   @Then("the number of grade bundle entities in the system shall be {string} \\(p9)")
