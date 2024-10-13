@@ -40,9 +40,13 @@ public class DeleteGradeBundleStepDefinitions {
   }
 
   @Then("the number of grade bundle entities in the system shall be {string} \\(p9)")
-  public void the_number_of_grade_bundle_entities_in_the_system_shall_be_p9(String string) {
+  public void the_number_of_grade_bundle_entities_in_the_system_shall_be_p9(String expectedNumber) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    int expectedNumberOfBundles = Integer.parseInt(expectedNumber);
+    int actualNumberOfBundles = CoolSuppliesApplication.getCoolSupplies().getBundles().size();
+    if (actualNumberOfBundles != expectedNumberOfBundles) {
+      throw new AssertionError("Expected " + expectedNumberOfBundles + " bundles, but found " + actualNumberOfBundles);
+    }
   }
 
   @Then("the following grade bundle entities shall exist in the system \\(p9)")
