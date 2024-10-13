@@ -45,7 +45,7 @@ public class DeleteGradeBundleStepDefinitions {
   @When("the school admin attempts to delete from the system the gradeBundle with name {string} \\(p9)")
   public void the_school_admin_attempts_to_delete_from_the_system_the_grade_bundle_with_name_p9(
       String bundleName) {
-      CoolSuppliesFeatureSet4Controller.deleteBundle(bundleName);
+      callController(CoolSuppliesFeatureSet4Controller.deleteBundle(bundleName));
   }
 
   @Then("the number of grade bundle entities in the system shall be {string} \\(p9)")
@@ -80,5 +80,12 @@ public class DeleteGradeBundleStepDefinitions {
   public void the_error_shall_be_raised_p9(String string) {
     assertTrue(error.contains(string));
   }
+
+    /** Calls controller and sets error and counter. */
+    private void callController(String result) {
+      if (!result.isEmpty()) {
+        error += result;
+      }
+    }
 
 }
