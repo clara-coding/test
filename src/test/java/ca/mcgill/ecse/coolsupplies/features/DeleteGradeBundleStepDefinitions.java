@@ -26,14 +26,10 @@ public class DeleteGradeBundleStepDefinitions {
   @Given("the following grade bundle entities exists in the system \\(p9)")
   public void the_following_grade_bundle_entities_exists_in_the_system_p9(
       io.cucumber.datatable.DataTable dataTable) {
-	  grade=getGrade(level);
 	  List<Map<String, String>> rows = dataTable.asMaps();
-	  for (var row : rows) {
-	      String bundles = row.get("bundles");
-              int number = Integer.parseInt(row.get(“discount”));
-	CoolSuppliesApplication.getCoolSupplies().addGradeBundle(item, number, grade);
-
-	      
+	    for (var row : rows) {
+	      String bundles = row.get("bundles");  
+	      CoolSuppliesApplication.getCoolSupplies().addBundle(bundles);
 	      }
   }
 
