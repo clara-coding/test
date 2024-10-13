@@ -3,6 +3,8 @@ package ca.mcgill.ecse.coolsupplies.features;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import main.java.ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller
 
 public class GetGradeBundleStepDefinitions {
