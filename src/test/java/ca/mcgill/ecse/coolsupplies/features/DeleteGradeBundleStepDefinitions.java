@@ -22,6 +22,8 @@ public class DeleteGradeBundleStepDefinitions {
 	  List<Map<String, String>> rows = dataTable.asMaps();
 	  for (var row : rows) {
 		  String level = row.get("level");
+      int number = Integer.parseInt(row.get(“discount”));
+      Grade grade = getGrade(gradeString);
 		  CoolSuppliesApplication.getCoolSupplies().addGrade(level); //check if already present?
 		  }
   }
