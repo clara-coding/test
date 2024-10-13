@@ -56,18 +56,25 @@ public class DeleteGradeBundleStepDefinitions {
     assertEquals(expectedNumberOfBundles, actualNumberOfBundles, "Expected " + expectedNumberOfBundles + " bundles, but found " + actualNumberOfBundles);
   }
 
-  @Then("the following grade bundle entities shall exist in the system \\(p9)")
-  public void the_following_grade_bundle_entities_shall_exist_in_the_system_p9(
-      io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
-  }
+	@Then("the following grade bundle entities shall exist in the system \\(p9)")
+	public void the_following_grade_bundle_entities_shall_exist_in_the_system_p9(
+			io.cucumber.datatable.DataTable dataTable) {
+
+		List<Map<String, String>> expectedGradeBundles = dataTable.asMaps(String.class, String.class);
+		List<GradeBundle> actualGradeBundles = CoolSuppliesApplication.getCoolSupplies().getBundles();
+
+		for (Map<String, String> expectedBundle : expectedGradeBundles) {
+			String name = expectedBundle.get("name");
+			int discount = Integer.parseInt(expectedBundle.get("discount"));
+			String gradeLevel = expectedBundle.get("gradeLevel");
+
+			boolean exists = actualGradeBundles.stream().anyMatch(bundle -> bundle.getName().equals(name)
+					&& bundle.getDiscount() == discount && bundle.getGrade().getLevel().equals(gradeLevel));
+
+			assertTrue(exists, "Expected grade bundle entity with name '" + name + "', discount '" + discount
+					+ "', and grade level '" + gradeLevel + "' does not exist in the system.");
+		}
+	}
 
   @Then("the error {string} shall be raised \\(p9)")
   public void the_error_shall_be_raised_p9(String string) {
