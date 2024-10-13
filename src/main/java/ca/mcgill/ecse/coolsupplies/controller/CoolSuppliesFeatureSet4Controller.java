@@ -21,6 +21,9 @@ public class CoolSuppliesFeatureSet4Controller {
         //throw new IllegalArgumentException("Error: Discount cannot be negative");
         return "Error: Discount cannot be negative";
     }
+    if (discount >= 100) {
+        return "Error: Discount cannot exceed 100%";
+    }
     if (gradeLevel == null || gradeLevel.trim().isEmpty()) {
         //throw new IllegalArgumentException("Error: Grade level cannot be empty");
         return "Error: Grade level cannot be empty";
