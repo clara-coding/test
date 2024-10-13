@@ -5,7 +5,7 @@ import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import ca.mcgill.ecse.coolsupplies.model.GradeBundle;
-import main.java.ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
+import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
 
 public class GetGradeBundleStepDefinitions {
   private GradeBundle gradeBundleFound;
