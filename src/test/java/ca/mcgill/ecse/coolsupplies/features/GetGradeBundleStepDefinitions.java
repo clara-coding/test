@@ -16,8 +16,7 @@ public class GetGradeBundleStepDefinitions {
   @When("the school admin attempts to get from the system the grade bundle with name {string} \\(p9)")
   public void the_school_admin_attempts_to_get_from_the_system_the_grade_bundle_with_name_p9(
       String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  callController(CoolSuppliesFeatureSet4Controller.getBundle(string));
   }
 
   @Then("the following grade bundle entities shall be presented \\(p9)")
