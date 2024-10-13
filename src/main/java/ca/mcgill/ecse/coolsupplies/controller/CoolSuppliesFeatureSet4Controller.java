@@ -139,7 +139,7 @@ public class CoolSuppliesFeatureSet4Controller {
         return null;
     }
 
-    public static GradeBundle findBundleByName(String name) {
+    private static GradeBundle findBundleByName(String name) {
         CoolSupplies coolSupplies = CoolSuppliesApplication.getCoolSupplies();
         for (GradeBundle bundle : coolSupplies.getBundles()) {
             if (bundle.getName().equals(name)) {
