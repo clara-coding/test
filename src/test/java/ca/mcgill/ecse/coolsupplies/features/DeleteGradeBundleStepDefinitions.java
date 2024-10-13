@@ -59,18 +59,18 @@ public class DeleteGradeBundleStepDefinitions {
 	@Then("the following grade bundle entities shall exist in the system \\(p9)")
 	public void the_following_grade_bundle_entities_shall_exist_in_the_system_p9(
 			io.cucumber.datatable.DataTable dataTable) {
-
+	
 		List<Map<String, String>> expectedGradeBundles = dataTable.asMaps(String.class, String.class);
 		List<GradeBundle> actualGradeBundles = CoolSuppliesApplication.getCoolSupplies().getBundles();
-
+	
 		for (Map<String, String> expectedBundle : expectedGradeBundles) {
 			String name = expectedBundle.get("name");
 			int discount = Integer.parseInt(expectedBundle.get("discount"));
 			String gradeLevel = expectedBundle.get("gradeLevel");
-
+	
 			boolean exists = actualGradeBundles.stream().anyMatch(bundle -> bundle.getName().equals(name)
 					&& bundle.getDiscount() == discount && bundle.getGrade().getLevel().equals(gradeLevel));
-
+	
 			assertTrue(exists, "Expected grade bundle entity with name '" + name + "', discount '" + discount
 					+ "', and grade level '" + gradeLevel + "' does not exist in the system.");
 		}
