@@ -1,5 +1,10 @@
 package ca.mcgill.ecse.coolsupplies.features;
 
+import java.util.List;
+import java.util.Map;
+
+import ca.mcgill.ecse.coolsupplies.application.CoolSuppliesApplication;
+import ca.mcgill.ecse.coolsupplies.model.CoolSupplies;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,14 +13,11 @@ public class DeleteGradeBundleStepDefinitions {
   @Given("the following grade entities exists in the system \\(p9)")
   public void the_following_grade_entities_exists_in_the_system_p9(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  List<Map<String, String>> rows = dataTable.asMaps();
+	  for (var row : rows) {
+		  String level = row.get("level");
+		  CoolSuppliesApplication.getCoolSupplies().addGrade(level); //check if already present?
+		  }
   }
 
   @Given("the following grade bundle entities exists in the system \\(p9)")
