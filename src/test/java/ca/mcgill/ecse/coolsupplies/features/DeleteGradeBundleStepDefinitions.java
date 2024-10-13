@@ -7,6 +7,8 @@ import java.util.Map;
 
 import ca.mcgill.ecse.coolsupplies.application.CoolSuppliesApplication;
 import ca.mcgill.ecse.coolsupplies.model.CoolSupplies;
+import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,8 +38,10 @@ public class DeleteGradeBundleStepDefinitions {
 
   @When("the school admin attempts to delete from the system the gradeBundle with name {string} \\(p9)")
   public void the_school_admin_attempts_to_delete_from_the_system_the_grade_bundle_with_name_p9(
-      String string) {
-      CoolSuppliesApplication.getCoolSupplies().deleteBundle(bundleName);
+      String bundleName) {
+      CoolSupplies coolSuppliesApplication = CoolSuppliesApplication.getCoolSupplies();
+      CoolSuppliesFeatureSet4Controller.findBundleByName(bundleName);
+      coolSuppliesApplication.removeBundle(CoolSuppliesFeatureSet4Controller.findBundleByName(bundleName));
   }
 
   @Then("the number of grade bundle entities in the system shall be {string} \\(p9)")
