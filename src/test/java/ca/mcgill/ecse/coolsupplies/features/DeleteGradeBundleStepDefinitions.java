@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.coolsupplies.features;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Map;
@@ -44,9 +45,7 @@ public class DeleteGradeBundleStepDefinitions {
     // Write code here that turns the phrase above into concrete actions
     int expectedNumberOfBundles = Integer.parseInt(expectedNumber);
     int actualNumberOfBundles = CoolSuppliesApplication.getCoolSupplies().getBundles().size();
-    if (actualNumberOfBundles != expectedNumberOfBundles) {
-      throw new AssertionError("Expected " + expectedNumberOfBundles + " bundles, but found " + actualNumberOfBundles);
-    }
+    assertEquals(expectedNumberOfBundles, actualNumberOfBundles, "Expected " + expectedNumberOfBundles + " bundles, but found " + actualNumberOfBundles);
   }
 
   @Then("the following grade bundle entities shall exist in the system \\(p9)")
