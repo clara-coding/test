@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.coolsupplies.features;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class DeleteGradeBundleStepDefinitions {
+  private String error;
+
   @Given("the following grade entities exists in the system \\(p9)")
   public void the_following_grade_entities_exists_in_the_system_p9(
       io.cucumber.datatable.DataTable dataTable) {
@@ -57,8 +60,7 @@ public class DeleteGradeBundleStepDefinitions {
 
   @Then("the error {string} shall be raised \\(p9)")
   public void the_error_shall_be_raised_p9(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    assertTrue(error.contains(string));
   }
 
 }
