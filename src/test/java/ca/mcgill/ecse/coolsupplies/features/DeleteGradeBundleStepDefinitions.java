@@ -8,6 +8,10 @@ import java.util.Map;
 import ca.mcgill.ecse.coolsupplies.application.CoolSuppliesApplication;
 import ca.mcgill.ecse.coolsupplies.model.CoolSupplies;
 import ca.mcgill.ecse.coolsupplies.model.GradeBundle;
+<<<<<<< HEAD
+=======
+import ca.mcgill.ecse.coolsupplies.model.Grade;
+>>>>>>> eff3d16 (Fixed issue with TheFollowingGradeBundleEntitiesExistsInTheSystem)
 import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
 
 import io.cucumber.java.en.Given;
@@ -30,14 +34,12 @@ public class DeleteGradeBundleStepDefinitions {
   @Given("the following grade bundle entities exists in the system \\(p9)")
   public void the_following_grade_bundle_entities_exists_in_the_system_p9(
       io.cucumber.datatable.DataTable dataTable) {
-	  grade=getGrade(level);
 	  List<Map<String, String>> rows = dataTable.asMaps();
 	  for (var row : rows) {
-	      String bundles = row.get("bundles");
-              int number = Integer.parseInt(row.get(“discount”));
-	CoolSuppliesApplication.getCoolSupplies().addGradeBundle(item, number, grade);
-
-	      
+        String level = row.get("gradeLevel");
+        Grade grade = findGradeByLevel(level);
+        int discount = Integer.parseInt(row.get("discount"));
+	      CoolSuppliesApplication.getCoolSupplies().addBundle(level, discount, grade);
 	      }
   }
 
@@ -83,11 +85,21 @@ public class DeleteGradeBundleStepDefinitions {
     assertTrue(error.contains(string));
   }
 
-    /** Calls controller and sets error and counter. */
-    private void callController(String result) {
-      if (!result.isEmpty()) {
-        error += result;
-      }
+  /** Calls controller and sets error and counter. */
+  private void callController(String result) {
+    if (!result.isEmpty()) {
+      error += result;
     }
+  }
+
+  private static Grade findGradeByLevel(String gradeLevel) {
+    CoolSupplies coolSupplies = CoolSuppliesApplication.getCoolSupplies();
+    for (Grade grade : coolSupplies.getGrades()) {
+        if (grade.getLevel().equals(gradeLevel)) {
+            return grade;
+        }
+    }
+    return null;
+  }
 
 }

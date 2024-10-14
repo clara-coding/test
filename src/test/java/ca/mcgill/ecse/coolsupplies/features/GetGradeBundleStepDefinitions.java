@@ -4,11 +4,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import ca.mcgill.ecse.coolsupplies.model.GradeBundle;
+import ca.mcgill.ecse.coolsupplies.controller.TOGradeBundle;
 import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
 
+import java.util.Map;
+
 public class GetGradeBundleStepDefinitions {
-  private GradeBundle gradeBundleFound;
+  private TOGradeBundle gradeBundleFound;
   
   @When("the school admin attempts to get from the system all the bundles \\(p9)")
   public void the_school_admin_attempts_to_get_from_the_system_all_the_bundles_p9() {
@@ -39,6 +41,6 @@ public class GetGradeBundleStepDefinitions {
   public void no_grade_bundle_entities_shall_be_presented_p9() {
     // Write code here that turns the phrase above into concrete actions
     assertTrue(CoolSuppliesFeatureSet4Controller.getBundles().isEmpty());
-  
+    
   }
 }
