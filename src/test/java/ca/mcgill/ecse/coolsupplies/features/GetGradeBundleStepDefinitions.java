@@ -33,7 +33,7 @@ public class GetGradeBundleStepDefinitions {
     // Compare discounts
     assertEquals(gradeBundleFound.getDiscount(), expectedGradeBundle.get("discount"));
     // Compare levels
-    assertEquals(gradeBundleFound.getGrade().getLevel(), 
+    assertEquals(gradeBundleFound.getGradeLevel(),
       expectedGradeBundle.get("level"));
   }
 

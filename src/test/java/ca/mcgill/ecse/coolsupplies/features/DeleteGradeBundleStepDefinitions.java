@@ -8,10 +8,7 @@ import java.util.Map;
 import ca.mcgill.ecse.coolsupplies.application.CoolSuppliesApplication;
 import ca.mcgill.ecse.coolsupplies.model.CoolSupplies;
 import ca.mcgill.ecse.coolsupplies.model.GradeBundle;
-<<<<<<< HEAD
-=======
 import ca.mcgill.ecse.coolsupplies.model.Grade;
->>>>>>> eff3d16 (Fixed issue with TheFollowingGradeBundleEntitiesExistsInTheSystem)
 import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
 
 import io.cucumber.java.en.Given;
