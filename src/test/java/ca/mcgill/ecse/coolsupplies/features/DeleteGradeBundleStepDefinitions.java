@@ -33,10 +33,10 @@ public class DeleteGradeBundleStepDefinitions {
       io.cucumber.datatable.DataTable dataTable) {
 	  List<Map<String, String>> rows = dataTable.asMaps();
 	  for (var row : rows) {
-        String level = row.get("gradeLevel");
+        String name = row.get(“name”);
         Grade grade = findGradeByLevel(level);
         int discount = Integer.parseInt(row.get("discount"));
-	      CoolSuppliesApplication.getCoolSupplies().addBundle(level, discount, grade);
+	      CoolSuppliesApplication.getCoolSupplies().addBundle(name, discount, grade);
 	      }
   }
 
