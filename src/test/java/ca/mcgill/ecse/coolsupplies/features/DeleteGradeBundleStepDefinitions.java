@@ -7,6 +7,7 @@ import java.util.Map;
 
 import ca.mcgill.ecse.coolsupplies.application.CoolSuppliesApplication;
 import ca.mcgill.ecse.coolsupplies.model.CoolSupplies;
+import ca.mcgill.ecse.coolsupplies.model.GradeBundle;
 import ca.mcgill.ecse.coolsupplies.controller.CoolSuppliesFeatureSet4Controller;
 
 import io.cucumber.java.en.Given;
