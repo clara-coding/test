@@ -71,9 +71,6 @@ public class CoolSuppliesFeatureSet2Controller {
         }
 
         try {
-          Grade grade = bundle.getGrade();
-          if (grade != null) {
-            grade.setBundle(null);
             student.delete();
 
         }    
