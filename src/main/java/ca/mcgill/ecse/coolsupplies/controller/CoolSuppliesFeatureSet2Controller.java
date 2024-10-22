@@ -50,6 +50,9 @@ public class CoolSuppliesFeatureSet2Controller {
         if (student == null) {
             return "Error: Student with the specified name does not exist";
         }
+        Grade grade = findGradeByLevel(gradeLevel);
+        if (grade == null) {
+            return "Error: Grade with the specified level does not exist";
 
         
             student.setName(newName);
